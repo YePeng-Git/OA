@@ -1,0 +1,1085 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OA.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Org_Organ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ParentID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDisable" Type="bit" />
+          <Property Name="DeleteMark" Type="int" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="Path" Type="nvarchar" MaxLength="200" />
+          <Property Name="PathName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SortStr" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsVirtual" Type="bit" />
+        </EntityType>
+        <EntityType Name="Org_OrganPerson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrganID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonID" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDefault" Type="bit" />
+          <Property Name="staffFlag" Type="int" />
+        </EntityType>
+        <EntityType Name="Org_Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PersonCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="PersonName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sex" Type="int" />
+          <Property Name="BirthDay" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobPhone2" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="MSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="ICQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeleteMark" Type="bit" />
+          <Property Name="AvatarPath" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="State" Type="int" />
+          <Property Name="StaffFlag" Type="int" />
+          <Property Name="DutyType" Type="nvarchar" MaxLength="10" />
+          <Property Name="EMAIL_CAPACITY" Type="int" />
+          <Property Name="LimitsID" Type="nvarchar" MaxLength="200" />
+          <Property Name="pingying" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Sys_Attachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Primarykey" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FileSize" Type="int" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpLoadTime" Type="datetime" />
+          <Property Name="SaveMark" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeleteMark" Type="bit" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Sys_AttachmentConver">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ConverTo" Type="nvarchar" MaxLength="10" />
+          <Property Name="ConverResult" Type="nvarchar" MaxLength="10" />
+          <Property Name="ConverTime" Type="datetime" />
+          <Property Name="UseTimes" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Sys_AttachmentSet">
+          <Key>
+            <PropertyRef Name="ModuleCode" />
+          </Key>
+          <Property Name="ModuleCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="20" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="200" />
+          <Property Name="PersonFolder" Type="bit" />
+          <Property Name="MaxSize" Type="int" />
+          <Property Name="NotAllowFileType" Type="nvarchar" MaxLength="200" />
+          <Property Name="AllowFileType" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Sys_BillNo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModuleCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prefix" Type="nvarchar" MaxLength="10" />
+          <Property Name="SpaceMark" Type="int" />
+          <Property Name="DateFormat" Type="nvarchar" MaxLength="10" />
+          <Property Name="Length" Type="int" />
+          <Property Name="MaxDate" Type="nvarchar" MaxLength="10" />
+          <Property Name="MaxNum" Type="int" />
+          <Property Name="Creater" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreateName" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="DeleteMark" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“OA.dbo.Sys_Clock”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Sys_Clock">
+          <Property Name="ID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Content" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="SendType" Type="nvarchar" MaxLength="10" />
+          <Property Name="Count" Type="int" />
+          <Property Name="UpdateCountTime" Type="datetime" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeleteMark" Type="int" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“OA.dbo.Sys_DbServer”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Sys_DbServer">
+          <Property Name="ClientID" Type="int" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DbName" Type="nvarchar" MaxLength="50" />
+          <Property Name="connectionString" Type="nvarchar" MaxLength="200" />
+        </EntityType>-->
+        <EntityType Name="Sys_Function">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModuleID" Type="int" />
+          <Property Name="FunctionCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sort" Type="int" />
+        </EntityType>
+        <EntityType Name="Sys_IdentityValues">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="ItemKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemValue" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sys_Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="DeleteMark" Type="bit" />
+          <Property Name="HostName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Sys_Mail">
+          <Key>
+            <PropertyRef Name="MailID" />
+          </Key>
+          <Property Name="MailID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="MailSubject" Type="nvarchar" MaxLength="200" />
+          <Property Name="MailContent" Type="text" />
+          <Property Name="MailState" Type="int" />
+          <Property Name="priority" Type="int" />
+          <Property Name="SendTimes" Type="int" />
+          <Property Name="SendTime" Type="datetime" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="BusinessName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessTable" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimerID" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“OA.dbo.Sys_Mail_Log”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Sys_Mail_Log">
+          <Property Name="MailID" Type="nvarchar" MaxLength="10" />
+          <Property Name="LogContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="Sys_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="MenuCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="MenuEName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="ModuleID" Type="int" />
+          <Property Name="IsShow" Type="int" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="20" />
+          <Property Name="WebUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="SysID" Type="int" />
+          <Property Name="DeleteMark" Type="bit" />
+          <Property Name="Dynamic" Type="tinyint" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“OA.dbo.Sys_Menu_Bak”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Sys_Menu_Bak">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="MenuCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="MenuEName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="ModuleID" Type="int" />
+          <Property Name="IsShow" Type="int" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="20" />
+          <Property Name="WebUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="SysID" Type="int" />
+          <Property Name="DeleteMark" Type="bit" />
+          <Property Name="Dynamic" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Sys_Module">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebURL" Type="nvarchar" MaxLength="100" />
+          <Property Name="SysID" Type="int" />
+          <Property Name="IsTab" Type="int" />
+          <Property Name="IsSys" Type="bit" />
+          <Property Name="DeleteMark" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sys_Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsDisable" Type="int" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsSuper" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sys_RoleFunction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="RoleID" Type="nvarchar" MaxLength="10" />
+          <Property Name="FunctionID" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Sys_SysInfo">
+          <Key>
+            <PropertyRef Name="SysID" />
+          </Key>
+          <Property Name="SysID" Type="int" Nullable="false" />
+          <Property Name="SysCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SysName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="Path" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDisable" Type="bit" />
+          <Property Name="DeleteMark" Type="bit" />
+          <Property Name="OpenModel" Type="int" />
+        </EntityType>
+        <EntityType Name="Sys_UnitInfo">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="PostCode" Type="varchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Legal" Type="nvarchar" MaxLength="50" />
+          <Property Name="LegalTelPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+          <Property Name="Account" Type="varchar" MaxLength="50" />
+          <Property Name="Abstruct" Type="ntext" />
+          <Property Name="AffixFile" Type="nvarchar" MaxLength="50" />
+          <Property Name="CorporateCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnrollDate" Type="date" />
+          <Property Name="NomicRemark" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Sys_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" />
+          <Property Name="PersonID" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDisable" Type="bit" />
+          <Property Name="IsSuper" Type="bit" />
+          <Property Name="IsForbid" Type="bit" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="DeleteMark" Type="bit" />
+          <Property Name="HID" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“OA.dbo.Sys_User_Function”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Sys_User_Function">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FunctionID" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_UserConfig">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Skin" Type="nvarchar" MaxLength="10" />
+          <Property Name="LastOnlineTime" Type="datetime" />
+          <Property Name="TotalOnline" Type="int" />
+          <Property Name="LogoutTime" Type="datetime" />
+          <Property Name="OnlineState" Type="int" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SignaTure" Type="nvarchar" MaxLength="100" />
+          <Property Name="OnlineIP" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="OAModelStoreContainer">
+          <EntitySet Name="Org_Organ" EntityType="Self.Org_Organ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Org_OrganPerson" EntityType="Self.Org_OrganPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Org_Person" EntityType="Self.Org_Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Attachment" EntityType="Self.Sys_Attachment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_AttachmentConver" EntityType="Self.Sys_AttachmentConver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_AttachmentSet" EntityType="Self.Sys_AttachmentSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_BillNo" EntityType="Self.Sys_BillNo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Function" EntityType="Self.Sys_Function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_IdentityValues" EntityType="Self.Sys_IdentityValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Log" EntityType="Self.Sys_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Mail" EntityType="Self.Sys_Mail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Menu" EntityType="Self.Sys_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Module" EntityType="Self.Sys_Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Role" EntityType="Self.Sys_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_RoleFunction" EntityType="Self.Sys_RoleFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_SysInfo" EntityType="Self.Sys_SysInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_UnitInfo" EntityType="Self.Sys_UnitInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_User" EntityType="Self.Sys_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_UserConfig" EntityType="Self.Sys_UserConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Menu_Bak" EntityType="Self.Sys_Menu_Bak" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sys_Menu_Bak].[MenuID] AS [MenuID], 
+[Sys_Menu_Bak].[MenuCode] AS [MenuCode], 
+[Sys_Menu_Bak].[MenuEName] AS [MenuEName], 
+[Sys_Menu_Bak].[ParentID] AS [ParentID], 
+[Sys_Menu_Bak].[ModuleID] AS [ModuleID], 
+[Sys_Menu_Bak].[IsShow] AS [IsShow], 
+[Sys_Menu_Bak].[MenuName] AS [MenuName], 
+[Sys_Menu_Bak].[WebUrl] AS [WebUrl], 
+[Sys_Menu_Bak].[SysID] AS [SysID], 
+[Sys_Menu_Bak].[DeleteMark] AS [DeleteMark], 
+[Sys_Menu_Bak].[Dynamic] AS [Dynamic]
+FROM [dbo].[Sys_Menu_Bak] AS [Sys_Menu_Bak]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sys_User_Function" EntityType="Self.Sys_User_Function" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sys_User_Function].[UserID] AS [UserID], 
+[Sys_User_Function].[FunctionID] AS [FunctionID]
+FROM [dbo].[Sys_User_Function] AS [Sys_User_Function]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OA.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Org_Organ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisable" Type="Boolean" />
+          <Property Name="DeleteMark" Type="Int32" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PathName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SortStr" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsVirtual" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Org_OrganPerson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrganID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDefault" Type="Boolean" />
+          <Property Name="staffFlag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Org_Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PersonCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PersonName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Int32" />
+          <Property Name="BirthDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobPhone2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ICQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomeTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeleteMark" Type="Boolean" />
+          <Property Name="AvatarPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="StaffFlag" Type="Int32" />
+          <Property Name="DutyType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_CAPACITY" Type="Int32" />
+          <Property Name="LimitsID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="pingying" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_Attachment">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Primarykey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RealName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FileSize" Type="Int32" />
+          <Property Name="FileType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpLoadTime" Type="DateTime" Precision="3" />
+          <Property Name="SaveMark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeleteMark" Type="Boolean" />
+          <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_AttachmentConver">
+          <Key>
+            <PropertyRef Name="AttachmentID" />
+          </Key>
+          <Property Name="AttachmentID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConverTo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ConverResult" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ConverTime" Type="DateTime" Precision="3" />
+          <Property Name="UseTimes" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Sys_AttachmentSet">
+          <Key>
+            <PropertyRef Name="ModuleCode" />
+          </Key>
+          <Property Name="ModuleCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModuleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PersonFolder" Type="Boolean" />
+          <Property Name="MaxSize" Type="Int32" />
+          <Property Name="NotAllowFileType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AllowFileType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_BillNo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModuleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SpaceMark" Type="Int32" />
+          <Property Name="DateFormat" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="Int32" />
+          <Property Name="MaxDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MaxNum" Type="Int32" />
+          <Property Name="Creater" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreateName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteMark" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sys_Function">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModuleID" Type="Int32" />
+          <Property Name="FunctionCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sys_IdentityValues">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="ItemKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemValue" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteMark" Type="Boolean" />
+          <Property Name="HostName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_Mail">
+          <Key>
+            <PropertyRef Name="MailID" />
+          </Key>
+          <Property Name="MailID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MailSubject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MailContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MailState" Type="Int32" />
+          <Property Name="priority" Type="Int32" />
+          <Property Name="SendTimes" Type="Int32" />
+          <Property Name="SendTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="BusinessName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimerID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="MenuCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MenuEName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="ModuleID" Type="Int32" />
+          <Property Name="IsShow" Type="Int32" />
+          <Property Name="MenuName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="WebUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SysID" Type="Int32" />
+          <Property Name="DeleteMark" Type="Boolean" />
+          <Property Name="Dynamic" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Sys_Module">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="Int32" Nullable="false" />
+          <Property Name="ModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SysID" Type="Int32" />
+          <Property Name="IsTab" Type="Int32" />
+          <Property Name="IsSys" Type="Boolean" />
+          <Property Name="DeleteMark" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Sys_Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisable" Type="Int32" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsSuper" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Sys_RoleFunction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_SysInfo">
+          <Key>
+            <PropertyRef Name="SysID" />
+          </Key>
+          <Property Name="SysID" Type="Int32" Nullable="false" />
+          <Property Name="SysCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SysName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="Path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisable" Type="Boolean" />
+          <Property Name="DeleteMark" Type="Boolean" />
+          <Property Name="OpenModel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sys_UnitInfo">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Legal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LegalTelPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Abstruct" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AffixFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CorporateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnrollDate" Type="DateTime" Precision="0" />
+          <Property Name="NomicRemark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PersonID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisable" Type="Boolean" />
+          <Property Name="IsSuper" Type="Boolean" />
+          <Property Name="IsForbid" Type="Boolean" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="DeleteMark" Type="Boolean" />
+          <Property Name="HID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_UserConfig">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Skin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LastOnlineTime" Type="DateTime" Precision="3" />
+          <Property Name="TotalOnline" Type="Int32" />
+          <Property Name="LogoutTime" Type="DateTime" Precision="3" />
+          <Property Name="OnlineState" Type="Int32" />
+          <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SignaTure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OnlineIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_Menu_Bak">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="MenuCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MenuEName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="ModuleID" Type="Int32" />
+          <Property Name="IsShow" Type="Int32" />
+          <Property Name="MenuName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="WebUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SysID" Type="Int32" />
+          <Property Name="DeleteMark" Type="Boolean" />
+          <Property Name="Dynamic" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Sys_User_Function">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FunctionID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Org_Organ" EntityType="Self.Org_Organ" />
+          <EntitySet Name="Org_OrganPerson" EntityType="Self.Org_OrganPerson" />
+          <EntitySet Name="Org_Person" EntityType="Self.Org_Person" />
+          <EntitySet Name="Sys_Attachment" EntityType="Self.Sys_Attachment" />
+          <EntitySet Name="Sys_AttachmentConver" EntityType="Self.Sys_AttachmentConver" />
+          <EntitySet Name="Sys_AttachmentSet" EntityType="Self.Sys_AttachmentSet" />
+          <EntitySet Name="Sys_BillNo" EntityType="Self.Sys_BillNo" />
+          <EntitySet Name="Sys_Function" EntityType="Self.Sys_Function" />
+          <EntitySet Name="Sys_IdentityValues" EntityType="Self.Sys_IdentityValues" />
+          <EntitySet Name="Sys_Log" EntityType="Self.Sys_Log" />
+          <EntitySet Name="Sys_Mail" EntityType="Self.Sys_Mail" />
+          <EntitySet Name="Sys_Menu" EntityType="Self.Sys_Menu" />
+          <EntitySet Name="Sys_Module" EntityType="Self.Sys_Module" />
+          <EntitySet Name="Sys_Role" EntityType="Self.Sys_Role" />
+          <EntitySet Name="Sys_RoleFunction" EntityType="Self.Sys_RoleFunction" />
+          <EntitySet Name="Sys_SysInfo" EntityType="Self.Sys_SysInfo" />
+          <EntitySet Name="Sys_UnitInfo" EntityType="Self.Sys_UnitInfo" />
+          <EntitySet Name="Sys_User" EntityType="Self.Sys_User" />
+          <EntitySet Name="Sys_UserConfig" EntityType="Self.Sys_UserConfig" />
+          <EntitySet Name="Sys_Menu_Bak" EntityType="Self.Sys_Menu_Bak" />
+          <EntitySet Name="Sys_User_Function" EntityType="Self.Sys_User_Function" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OAModelStoreContainer" CdmEntityContainer="DataModel">
+          <EntitySetMapping Name="Org_Organ">
+            <EntityTypeMapping TypeName="OA.Model.Org_Organ">
+              <MappingFragment StoreEntitySet="Org_Organ">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="PathName" ColumnName="PathName" />
+                <ScalarProperty Name="SortStr" ColumnName="SortStr" />
+                <ScalarProperty Name="IsVirtual" ColumnName="IsVirtual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Org_OrganPerson">
+            <EntityTypeMapping TypeName="OA.Model.Org_OrganPerson">
+              <MappingFragment StoreEntitySet="Org_OrganPerson">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrganID" ColumnName="OrganID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="staffFlag" ColumnName="staffFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Org_Person">
+            <EntityTypeMapping TypeName="OA.Model.Org_Person">
+              <MappingFragment StoreEntitySet="Org_Person">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="JobPhone" ColumnName="JobPhone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="JobPhone2" ColumnName="JobPhone2" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="MSN" ColumnName="MSN" />
+                <ScalarProperty Name="ICQ" ColumnName="ICQ" />
+                <ScalarProperty Name="FamilyAddress" ColumnName="FamilyAddress" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="HomeTel" ColumnName="HomeTel" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="StaffFlag" ColumnName="StaffFlag" />
+                <ScalarProperty Name="DutyType" ColumnName="DutyType" />
+                <ScalarProperty Name="EMAIL_CAPACITY" ColumnName="EMAIL_CAPACITY" />
+                <ScalarProperty Name="LimitsID" ColumnName="LimitsID" />
+                <ScalarProperty Name="pingying" ColumnName="pingying" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Attachment">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Attachment">
+              <MappingFragment StoreEntitySet="Sys_Attachment">
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="Primarykey" ColumnName="Primarykey" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="UpLoadTime" ColumnName="UpLoadTime" />
+                <ScalarProperty Name="SaveMark" ColumnName="SaveMark" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_AttachmentConver">
+            <EntityTypeMapping TypeName="OA.Model.Sys_AttachmentConver">
+              <MappingFragment StoreEntitySet="Sys_AttachmentConver">
+                <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+                <ScalarProperty Name="ConverTo" ColumnName="ConverTo" />
+                <ScalarProperty Name="ConverResult" ColumnName="ConverResult" />
+                <ScalarProperty Name="ConverTime" ColumnName="ConverTime" />
+                <ScalarProperty Name="UseTimes" ColumnName="UseTimes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_AttachmentSet">
+            <EntityTypeMapping TypeName="OA.Model.Sys_AttachmentSet">
+              <MappingFragment StoreEntitySet="Sys_AttachmentSet">
+                <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="PersonFolder" ColumnName="PersonFolder" />
+                <ScalarProperty Name="MaxSize" ColumnName="MaxSize" />
+                <ScalarProperty Name="NotAllowFileType" ColumnName="NotAllowFileType" />
+                <ScalarProperty Name="AllowFileType" ColumnName="AllowFileType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_BillNo">
+            <EntityTypeMapping TypeName="OA.Model.Sys_BillNo">
+              <MappingFragment StoreEntitySet="Sys_BillNo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="SpaceMark" ColumnName="SpaceMark" />
+                <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="MaxDate" ColumnName="MaxDate" />
+                <ScalarProperty Name="MaxNum" ColumnName="MaxNum" />
+                <ScalarProperty Name="Creater" ColumnName="Creater" />
+                <ScalarProperty Name="CreateName" ColumnName="CreateName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Function">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Function">
+              <MappingFragment StoreEntitySet="Sys_Function">
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="FunctionCode" ColumnName="FunctionCode" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_IdentityValues">
+            <EntityTypeMapping TypeName="OA.Model.Sys_IdentityValues">
+              <MappingFragment StoreEntitySet="Sys_IdentityValues">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ItemKey" ColumnName="ItemKey" />
+                <ScalarProperty Name="ItemValue" ColumnName="ItemValue" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Log">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Log">
+              <MappingFragment StoreEntitySet="Sys_Log">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="LogContent" ColumnName="LogContent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Mail">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Mail">
+              <MappingFragment StoreEntitySet="Sys_Mail">
+                <ScalarProperty Name="MailID" ColumnName="MailID" />
+                <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+                <ScalarProperty Name="MailSubject" ColumnName="MailSubject" />
+                <ScalarProperty Name="MailContent" ColumnName="MailContent" />
+                <ScalarProperty Name="MailState" ColumnName="MailState" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="SendTimes" ColumnName="SendTimes" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="BusinessTable" ColumnName="BusinessTable" />
+                <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+                <ScalarProperty Name="TimerID" ColumnName="TimerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Menu">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Menu">
+              <MappingFragment StoreEntitySet="Sys_Menu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+                <ScalarProperty Name="MenuEName" ColumnName="MenuEName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="WebUrl" ColumnName="WebUrl" />
+                <ScalarProperty Name="SysID" ColumnName="SysID" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="Dynamic" ColumnName="Dynamic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Module">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Module">
+              <MappingFragment StoreEntitySet="Sys_Module">
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="WebURL" ColumnName="WebURL" />
+                <ScalarProperty Name="SysID" ColumnName="SysID" />
+                <ScalarProperty Name="IsTab" ColumnName="IsTab" />
+                <ScalarProperty Name="IsSys" ColumnName="IsSys" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Role">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Role">
+              <MappingFragment StoreEntitySet="Sys_Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsSuper" ColumnName="IsSuper" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_RoleFunction">
+            <EntityTypeMapping TypeName="OA.Model.Sys_RoleFunction">
+              <MappingFragment StoreEntitySet="Sys_RoleFunction">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_SysInfo">
+            <EntityTypeMapping TypeName="OA.Model.Sys_SysInfo">
+              <MappingFragment StoreEntitySet="Sys_SysInfo">
+                <ScalarProperty Name="SysID" ColumnName="SysID" />
+                <ScalarProperty Name="SysCode" ColumnName="SysCode" />
+                <ScalarProperty Name="SysName" ColumnName="SysName" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="OpenModel" ColumnName="OpenModel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_UnitInfo">
+            <EntityTypeMapping TypeName="OA.Model.Sys_UnitInfo">
+              <MappingFragment StoreEntitySet="Sys_UnitInfo">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortName" ColumnName="SortName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Legal" ColumnName="Legal" />
+                <ScalarProperty Name="LegalTelPhone" ColumnName="LegalTelPhone" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Abstruct" ColumnName="Abstruct" />
+                <ScalarProperty Name="AffixFile" ColumnName="AffixFile" />
+                <ScalarProperty Name="CorporateCode" ColumnName="CorporateCode" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="EnrollDate" ColumnName="EnrollDate" />
+                <ScalarProperty Name="NomicRemark" ColumnName="NomicRemark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_User">
+            <EntityTypeMapping TypeName="OA.Model.Sys_User">
+              <MappingFragment StoreEntitySet="Sys_User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="IsSuper" ColumnName="IsSuper" />
+                <ScalarProperty Name="IsForbid" ColumnName="IsForbid" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="HID" ColumnName="HID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_UserConfig">
+            <EntityTypeMapping TypeName="OA.Model.Sys_UserConfig">
+              <MappingFragment StoreEntitySet="Sys_UserConfig">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Skin" ColumnName="Skin" />
+                <ScalarProperty Name="LastOnlineTime" ColumnName="LastOnlineTime" />
+                <ScalarProperty Name="TotalOnline" ColumnName="TotalOnline" />
+                <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+                <ScalarProperty Name="OnlineState" ColumnName="OnlineState" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="SignaTure" ColumnName="SignaTure" />
+                <ScalarProperty Name="OnlineIP" ColumnName="OnlineIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Menu_Bak">
+            <EntityTypeMapping TypeName="OA.Model.Sys_Menu_Bak">
+              <MappingFragment StoreEntitySet="Sys_Menu_Bak">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+                <ScalarProperty Name="MenuEName" ColumnName="MenuEName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="WebUrl" ColumnName="WebUrl" />
+                <ScalarProperty Name="SysID" ColumnName="SysID" />
+                <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+                <ScalarProperty Name="Dynamic" ColumnName="Dynamic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_User_Function">
+            <EntityTypeMapping TypeName="OA.Model.Sys_User_Function">
+              <MappingFragment StoreEntitySet="Sys_User_Function">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

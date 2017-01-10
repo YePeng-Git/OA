@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OA.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Org_Organ">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDisable" Type="Boolean" />
+    <Property Name="DeleteMark" Type="Int32" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PathName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SortStr" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsVirtual" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Org_OrganPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OrganID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PersonID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" />
+    <Property Name="staffFlag" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Org_Person">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PersonName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="Int32" />
+    <Property Name="BirthDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JobPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JobPhone2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ICQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HomeTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeleteMark" Type="Boolean" />
+    <Property Name="AvatarPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="StaffFlag" Type="Int32" />
+    <Property Name="DutyType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL_CAPACITY" Type="Int32" />
+    <Property Name="LimitsID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="pingying" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_Attachment">
+    <Key>
+      <PropertyRef Name="AttachmentID" />
+    </Key>
+    <Property Name="AttachmentID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Primarykey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RealName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FileSize" Type="Int32" />
+    <Property Name="FileType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UpLoadTime" Type="DateTime" Precision="3" />
+    <Property Name="SaveMark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeleteMark" Type="Boolean" />
+    <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_AttachmentConver">
+    <Key>
+      <PropertyRef Name="AttachmentID" />
+    </Key>
+    <Property Name="AttachmentID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConverTo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ConverResult" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ConverTime" Type="DateTime" Precision="3" />
+    <Property Name="UseTimes" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Sys_AttachmentSet">
+    <Key>
+      <PropertyRef Name="ModuleCode" />
+    </Key>
+    <Property Name="ModuleCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ModuleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PersonFolder" Type="Boolean" />
+    <Property Name="MaxSize" Type="Int32" />
+    <Property Name="NotAllowFileType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AllowFileType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_BillNo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ModuleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SpaceMark" Type="Int32" />
+    <Property Name="DateFormat" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="Int32" />
+    <Property Name="MaxDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MaxNum" Type="Int32" />
+    <Property Name="Creater" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreateName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteMark" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Sys_Function">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ModuleID" Type="Int32" />
+    <Property Name="FunctionCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Sys_IdentityValues">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemValue" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_Log">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LogContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeleteMark" Type="Boolean" />
+    <Property Name="HostName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_Mail">
+    <Key>
+      <PropertyRef Name="MailID" />
+    </Key>
+    <Property Name="MailID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MailSubject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MailContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MailState" Type="Int32" />
+    <Property Name="priority" Type="Int32" />
+    <Property Name="SendTimes" Type="Int32" />
+    <Property Name="SendTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="BusinessName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BusinessTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BusinessKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimerID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_Menu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="MenuCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MenuEName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="ModuleID" Type="Int32" />
+    <Property Name="IsShow" Type="Int32" />
+    <Property Name="MenuName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="WebUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SysID" Type="Int32" />
+    <Property Name="DeleteMark" Type="Boolean" />
+    <Property Name="Dynamic" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Sys_Module">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="Int32" Nullable="false" />
+    <Property Name="ModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SysID" Type="Int32" />
+    <Property Name="IsTab" Type="Int32" />
+    <Property Name="IsSys" Type="Boolean" />
+    <Property Name="DeleteMark" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Sys_Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsDisable" Type="Int32" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsSuper" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Sys_RoleFunction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_SysInfo">
+    <Key>
+      <PropertyRef Name="SysID" />
+    </Key>
+    <Property Name="SysID" Type="Int32" Nullable="false" />
+    <Property Name="SysCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SysName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDisable" Type="Boolean" />
+    <Property Name="DeleteMark" Type="Boolean" />
+    <Property Name="OpenModel" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Sys_UnitInfo">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Name="UnitID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Legal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LegalTelPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Abstruct" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AffixFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CorporateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EnrollDate" Type="DateTime" Precision="0" />
+    <Property Name="NomicRemark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PersonID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDisable" Type="Boolean" />
+    <Property Name="IsSuper" Type="Boolean" />
+    <Property Name="IsForbid" Type="Boolean" />
+    <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+    <Property Name="DeleteMark" Type="Boolean" />
+    <Property Name="HID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_UserConfig">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Skin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LastOnlineTime" Type="DateTime" Precision="3" />
+    <Property Name="TotalOnline" Type="Int32" />
+    <Property Name="LogoutTime" Type="DateTime" Precision="3" />
+    <Property Name="OnlineState" Type="Int32" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SignaTure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OnlineIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_Menu_Bak">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="MenuCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MenuEName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="ModuleID" Type="Int32" />
+    <Property Name="IsShow" Type="Int32" />
+    <Property Name="MenuName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="WebUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SysID" Type="Int32" />
+    <Property Name="DeleteMark" Type="Boolean" />
+    <Property Name="Dynamic" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Sys_User_Function">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FunctionID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DataModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Org_Organ" EntityType="Self.Org_Organ" />
+    <EntitySet Name="Org_OrganPerson" EntityType="Self.Org_OrganPerson" />
+    <EntitySet Name="Org_Person" EntityType="Self.Org_Person" />
+    <EntitySet Name="Sys_Attachment" EntityType="Self.Sys_Attachment" />
+    <EntitySet Name="Sys_AttachmentConver" EntityType="Self.Sys_AttachmentConver" />
+    <EntitySet Name="Sys_AttachmentSet" EntityType="Self.Sys_AttachmentSet" />
+    <EntitySet Name="Sys_BillNo" EntityType="Self.Sys_BillNo" />
+    <EntitySet Name="Sys_Function" EntityType="Self.Sys_Function" />
+    <EntitySet Name="Sys_IdentityValues" EntityType="Self.Sys_IdentityValues" />
+    <EntitySet Name="Sys_Log" EntityType="Self.Sys_Log" />
+    <EntitySet Name="Sys_Mail" EntityType="Self.Sys_Mail" />
+    <EntitySet Name="Sys_Menu" EntityType="Self.Sys_Menu" />
+    <EntitySet Name="Sys_Module" EntityType="Self.Sys_Module" />
+    <EntitySet Name="Sys_Role" EntityType="Self.Sys_Role" />
+    <EntitySet Name="Sys_RoleFunction" EntityType="Self.Sys_RoleFunction" />
+    <EntitySet Name="Sys_SysInfo" EntityType="Self.Sys_SysInfo" />
+    <EntitySet Name="Sys_UnitInfo" EntityType="Self.Sys_UnitInfo" />
+    <EntitySet Name="Sys_User" EntityType="Self.Sys_User" />
+    <EntitySet Name="Sys_UserConfig" EntityType="Self.Sys_UserConfig" />
+    <EntitySet Name="Sys_Menu_Bak" EntityType="Self.Sys_Menu_Bak" />
+    <EntitySet Name="Sys_User_Function" EntityType="Self.Sys_User_Function" />
+  </EntityContainer>
+</Schema>

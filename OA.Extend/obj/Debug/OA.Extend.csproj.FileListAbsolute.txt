@@ -1,0 +1,10 @@
+D:\MyProject\OA\OA.Extend\bin\Debug\OA.Extend.dll
+D:\MyProject\OA\OA.Extend\bin\Debug\OA.Extend.pdb
+D:\MyProject\OA\OA.Extend\obj\Debug\OA.Extend.dll
+D:\MyProject\OA\OA.Extend\obj\Debug\OA.Extend.pdb
+D:\MyProject\OA\OA.Extend\obj\Debug\OA.Extend.csprojResolveAssemblyReference.cache
+G:\MyProject\OA\OA.Extend\bin\Debug\OA.Extend.dll
+G:\MyProject\OA\OA.Extend\bin\Debug\OA.Extend.pdb
+G:\MyProject\OA\OA.Extend\obj\Debug\OA.Extend.dll
+G:\MyProject\OA\OA.Extend\obj\Debug\OA.Extend.pdb
+G:\MyProject\OA\OA.Extend\obj\Debug\OA.Extend.csprojResolveAssemblyReference.cache

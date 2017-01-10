@@ -1,0 +1,222 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>组织机构</title>
+    <link rel="stylesheet" href="@ViewBag.easyuiTheme" id="easyuiTheme" />
+    @Styles.Render("~/style-easyui")
+
+
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',border:false,split:false" style="overflow: hidden;"
+         id="Div1">
+        <table align="center" width="100%" class="HeadTable">
+            <tr>
+                <td class="HeadTitle">
+                    <img src="/theme/icons/form.png" style="vertical-align: middle" /><span class="big3">组织机构</span>
+                </td>
+                <td>
+                    <div class="right" id="form_head">
+                        <table border="0" cellpadding="0" cellspacing="0" class="search_bar">
+                            <tr>
+                                <td class="search_td1">
+                                    <asp:TextBox ID="txtAutoSearch" runat="server">
+                                    </asp:TextBox>
+                                </td>
+                                <td class="search_td2">
+                                    <a id="search" href="javascript:;" title="搜索" onclick="ShowSearchPanel('search')">
+                                    </a>
+                                </td>
+                                <td style="border: none;">
+                                    <asp:ImageButton ID="ImageButton1" runat="server" CssClass="search_btn" ImageUrl="~/theme/default/images/index/search.png"
+                                                     OnClientClick="return doSearch(1)" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="right">
+                        <a id="OutPutData" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'"
+                           href="javascript:OutPutData();">导出</a> <a class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-redo'"
+                                                                     href="/SYS/User/InputData.aspx?Flag=0">导入</a>
+                        <asp:LinkButton ID="AddDept" runat="server" CssClass="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'"
+                                        OnClick="AddDept_Click">新增</asp:LinkButton>
+                        <a id="del" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-del'"
+                           onclick="DelALL()">删除</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-options="region:'center',border:false,split:false" id="dataMain" style="border: 0px">
+        <table id="tt" data-options="toolbar:'#toolBar'"></table>
+    </div>
+    <div id="toolBar" style="padding:2px 5px;">
+        <table cellpadding="2" cellspacing="5">
+            <tr>
+                <td align="right">
+                    全称：
+                </td>
+                <td align="left">
+                    <input id="txt_DeptName" type="text" class="BigInput" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    简称：
+                </td>
+                <td align="left">
+                    <input id="txt_ShortName" type="text" class="BigInput" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    类型：
+                </td>
+                <td align="left">
+                    <asp:dropdownlist id="ddlOrgantype">
+                        <asp:listitem value="">---请选择---</asp:listitem>
+                        <asp:listitem value="04">普通部门</asp:listitem>
+                        <asp:listitem value="01">分支机构</asp:listitem>
+                    </asp:dropdownlist>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <a href="#" class="search-ok" onclick="CloseSearchPanel('search');doSearch(2);">
+                    </a>&nbsp<a href="#" class="search-cannel" onclick="CloseSearchPanel('search')"></a>
+                    &nbsp;<a href="#" class="search-reset" onclick="resetsearch()"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @*<div id="dlg" class="easyui-dialog" style="width: 600px; height: 280px; background-color: White;"
+             buttons="#dlg-buttons">
+            <table class="TableInfo" style="width: 95%; margin: 5px; display: none" align="center"
+                   id="TableInfo">
+                <tr>
+                    <td class="TableContent" align="right" style="width: 80px">
+                        上级：
+                    </td>
+                    <td class="TableData" style="width: 220px">
+                        <label id="lbParentOrgan">
+                        </label>
+                    </td>
+                    <td class="TableContent" align="right" style="width: 80px">
+                        类型：
+                    </td>
+                    <td class="TableData" style="width: 220px">
+                        <label id="lbOrganType">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TableContent" align="right">
+                        全称：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbFullName">
+                        </label>
+                    </td>
+                    <td class="TableContent" align="right">
+                        编号：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbCode">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TableContent" align="right">
+                        简称：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbShortName">
+                        </label>
+                    </td>
+                    <td class="TableContent" align="right">
+                        序号：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbSort">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TableContent" align="right">
+                        电话：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbTel">
+                        </label>
+                    </td>
+                    <td class="TableContent" align="right">
+                        传真：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbFax">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TableContent" align="right">
+                        税号：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbTaxNum">
+                        </label>
+                    </td>
+                    <td class="TableContent" align="right">
+                        银行：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbBank">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TableContent" align="right">
+                        账号：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbAccountNum">
+                        </label>
+                    </td>
+                    <td class="TableContent" align="right">
+                        状态：
+                    </td>
+                    <td class="TableData">
+                        <label id="lbStatus">
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </div>*@
+    @Scripts.Render("~/script-easyui")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/public.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tt").initGrid({
+                url: '/Organ/InitGrid',
+                queryParams: { ParentID: getQueryString("ParentID") },
+                columns: [[
+                    { field: 'TypeID', title: '组织机构', width: 80, sortable: true },
+                    { field: 'Code', title: '编码', width: 80, sortable: true },
+                    { field: 'FullName', title: '名称', width: 80, sortable: true },
+                    { field: 'action', title: '操作', width: 80 }
+                ]],
+                sortName: "Code"
+            });
+
+
+        });
+
+    </script>
+
+</body>
+</html>

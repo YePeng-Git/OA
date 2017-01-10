@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OAModelStoreContainer" CdmEntityContainer="OAEntities">
+    <EntitySetMapping Name="Sys_Attachment">
+      <EntityTypeMapping TypeName="OAModel.Sys_Attachment">
+        <MappingFragment StoreEntitySet="Sys_Attachment">
+          <ScalarProperty Name="AttachmentID" ColumnName="AttachmentID" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Primarykey" ColumnName="Primarykey" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="UpLoadTime" ColumnName="UpLoadTime" />
+          <ScalarProperty Name="SaveMark" ColumnName="SaveMark" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_AttachmentSet">
+      <EntityTypeMapping TypeName="OAModel.Sys_AttachmentSet">
+        <MappingFragment StoreEntitySet="Sys_AttachmentSet">
+          <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="PersonFolder" ColumnName="PersonFolder" />
+          <ScalarProperty Name="MaxSize" ColumnName="MaxSize" />
+          <ScalarProperty Name="NotAllowFileType" ColumnName="NotAllowFileType" />
+          <ScalarProperty Name="AllowFileType" ColumnName="AllowFileType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_BillNo">
+      <EntityTypeMapping TypeName="OAModel.Sys_BillNo">
+        <MappingFragment StoreEntitySet="Sys_BillNo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ModuleCode" ColumnName="ModuleCode" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="SpaceMark" ColumnName="SpaceMark" />
+          <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="MaxDate" ColumnName="MaxDate" />
+          <ScalarProperty Name="MaxNum" ColumnName="MaxNum" />
+          <ScalarProperty Name="Creater" ColumnName="Creater" />
+          <ScalarProperty Name="CreateName" ColumnName="CreateName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_Function">
+      <EntityTypeMapping TypeName="OAModel.Sys_Function">
+        <MappingFragment StoreEntitySet="Sys_Function">
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="FunctionCode" ColumnName="FunctionCode" />
+          <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_IdentityValues">
+      <EntityTypeMapping TypeName="OAModel.Sys_IdentityValues">
+        <MappingFragment StoreEntitySet="Sys_IdentityValues">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ItemKey" ColumnName="ItemKey" />
+          <ScalarProperty Name="ItemValue" ColumnName="ItemValue" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_Menu">
+      <EntityTypeMapping TypeName="OAModel.Sys_Menu">
+        <MappingFragment StoreEntitySet="Sys_Menu">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+          <ScalarProperty Name="MenuEName" ColumnName="MenuEName" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="WebUrl" ColumnName="WebUrl" />
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="Dynamic" ColumnName="Dynamic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_Module">
+      <EntityTypeMapping TypeName="OAModel.Sys_Module">
+        <MappingFragment StoreEntitySet="Sys_Module">
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="WebURL" ColumnName="WebURL" />
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
+          <ScalarProperty Name="IsTab" ColumnName="IsTab" />
+          <ScalarProperty Name="IsSys" ColumnName="IsSys" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_Role">
+      <EntityTypeMapping TypeName="OAModel.Sys_Role">
+        <MappingFragment StoreEntitySet="Sys_Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSuper" ColumnName="IsSuper" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_RoleFunction">
+      <EntityTypeMapping TypeName="OAModel.Sys_RoleFunction">
+        <MappingFragment StoreEntitySet="Sys_RoleFunction">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_RoleRange">
+      <EntityTypeMapping TypeName="OAModel.Sys_RoleRange">
+        <MappingFragment StoreEntitySet="Sys_RoleRange">
+          <ScalarProperty Name="RoleRangeID" ColumnName="RoleRangeID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RangeID" ColumnName="RangeID" />
+          <ScalarProperty Name="RangeName" ColumnName="RangeName" />
+          <ScalarProperty Name="RangeType" ColumnName="RangeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_SmsReadRecord">
+      <EntityTypeMapping TypeName="OAModel.Sys_SmsReadRecord">
+        <MappingFragment StoreEntitySet="Sys_SmsReadRecord">
+          <ScalarProperty Name="ReadID" ColumnName="ReadID" />
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="Reader" ColumnName="Reader" />
+          <ScalarProperty Name="ReaderName" ColumnName="ReaderName" />
+          <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+          <ScalarProperty Name="IsRemindNeed" ColumnName="IsRemindNeed" />
+          <ScalarProperty Name="IsRemindConfirm" ColumnName="IsRemindConfirm" />
+          <ScalarProperty Name="RemindTime" ColumnName="RemindTime" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="IsConfirm" ColumnName="IsConfirm" />
+          <ScalarProperty Name="RtxConfirm" ColumnName="RtxConfirm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_SmsRecord">
+      <EntityTypeMapping TypeName="OAModel.Sys_SmsRecord">
+        <MappingFragment StoreEntitySet="Sys_SmsRecord">
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="Recipients" ColumnName="Recipients" />
+          <ScalarProperty Name="RecipientsName" ColumnName="RecipientsName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="KeyID" ColumnName="KeyID" />
+          <ScalarProperty Name="SmsType" ColumnName="SmsType" />
+          <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="TimerID" ColumnName="TimerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_SysInfo">
+      <EntityTypeMapping TypeName="OAModel.Sys_SysInfo">
+        <MappingFragment StoreEntitySet="Sys_SysInfo">
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
+          <ScalarProperty Name="SysCode" ColumnName="SysCode" />
+          <ScalarProperty Name="SysName" ColumnName="SysName" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="OpenModel" ColumnName="OpenModel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_UnitInfo">
+      <EntityTypeMapping TypeName="OAModel.Sys_UnitInfo">
+        <MappingFragment StoreEntitySet="Sys_UnitInfo">
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SortName" ColumnName="SortName" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Legal" ColumnName="Legal" />
+          <ScalarProperty Name="LegalTelPhone" ColumnName="LegalTelPhone" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Abstruct" ColumnName="Abstruct" />
+          <ScalarProperty Name="AffixFile" ColumnName="AffixFile" />
+          <ScalarProperty Name="CorporateCode" ColumnName="CorporateCode" />
+          <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+          <ScalarProperty Name="EnrollDate" ColumnName="EnrollDate" />
+          <ScalarProperty Name="NomicRemark" ColumnName="NomicRemark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_User">
+      <EntityTypeMapping TypeName="OAModel.Sys_User">
+        <MappingFragment StoreEntitySet="Sys_User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+          <ScalarProperty Name="IsSuper" ColumnName="IsSuper" />
+          <ScalarProperty Name="IsForbid" ColumnName="IsForbid" />
+          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="HID" ColumnName="HID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_UserConfig">
+      <EntityTypeMapping TypeName="OAModel.Sys_UserConfig">
+        <MappingFragment StoreEntitySet="Sys_UserConfig">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Skin" ColumnName="Skin" />
+          <ScalarProperty Name="LastOnlineTime" ColumnName="LastOnlineTime" />
+          <ScalarProperty Name="TotalOnline" ColumnName="TotalOnline" />
+          <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+          <ScalarProperty Name="OnlineState" ColumnName="OnlineState" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="SignaTure" ColumnName="SignaTure" />
+          <ScalarProperty Name="OnlineIP" ColumnName="OnlineIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_User_Function">
+      <EntityTypeMapping TypeName="OAModel.Sys_User_Function">
+        <MappingFragment StoreEntitySet="Sys_User_Function">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Org_Organ">
+      <EntityTypeMapping TypeName="OAModel.Org_Organ">
+        <MappingFragment StoreEntitySet="Org_Organ">
+          <ScalarProperty Name="IsVirtual" ColumnName="IsVirtual" />
+          <ScalarProperty Name="SortStr" ColumnName="SortStr" />
+          <ScalarProperty Name="PathName" ColumnName="PathName" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Org_OrganPerson">
+      <EntityTypeMapping TypeName="OAModel.Org_OrganPerson">
+        <MappingFragment StoreEntitySet="Org_OrganPerson">
+          <ScalarProperty Name="staffFlag" ColumnName="staffFlag" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="OrganID" ColumnName="OrganID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Org_Person">
+      <EntityTypeMapping TypeName="OAModel.Org_Person">
+        <MappingFragment StoreEntitySet="Org_Person">
+          <ScalarProperty Name="pingying" ColumnName="pingying" />
+          <ScalarProperty Name="LimitsID" ColumnName="LimitsID" />
+          <ScalarProperty Name="EMAIL_CAPACITY" ColumnName="EMAIL_CAPACITY" />
+          <ScalarProperty Name="DutyType" ColumnName="DutyType" />
+          <ScalarProperty Name="StaffFlag" ColumnName="StaffFlag" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+          <ScalarProperty Name="DeleteMark" ColumnName="DeleteMark" />
+          <ScalarProperty Name="HomeTel" ColumnName="HomeTel" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="FamilyAddress" ColumnName="FamilyAddress" />
+          <ScalarProperty Name="ICQ" ColumnName="ICQ" />
+          <ScalarProperty Name="MSN" ColumnName="MSN" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="JobPhone2" ColumnName="JobPhone2" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="JobPhone" ColumnName="JobPhone" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_Mail">
+      <EntityTypeMapping TypeName="OAModel.Sys_Mail">
+        <MappingFragment StoreEntitySet="Sys_Mail">
+          <ScalarProperty Name="TimerID" ColumnName="TimerID" />
+          <ScalarProperty Name="BusinessKey" ColumnName="BusinessKey" />
+          <ScalarProperty Name="BusinessTable" ColumnName="BusinessTable" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="SendTimes" ColumnName="SendTimes" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+          <ScalarProperty Name="MailState" ColumnName="MailState" />
+          <ScalarProperty Name="MailContent" ColumnName="MailContent" />
+          <ScalarProperty Name="MailSubject" ColumnName="MailSubject" />
+          <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+          <ScalarProperty Name="MailID" ColumnName="MailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_Para">
+      <EntityTypeMapping TypeName="OAModel.Sys_Para">
+        <MappingFragment StoreEntitySet="Sys_Para">
+          <ScalarProperty Name="ShowOrder" ColumnName="ShowOrder" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="ParaType" ColumnName="ParaType" />
+          <ScalarProperty Name="ParaValue" ColumnName="ParaValue" />
+          <ScalarProperty Name="ParaName" ColumnName="ParaName" />
+          <ScalarProperty Name="ParaKey" ColumnName="ParaKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

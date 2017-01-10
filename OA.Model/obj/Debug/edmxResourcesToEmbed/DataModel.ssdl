@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OA.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Org_Organ">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ParentID" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeID" Type="nvarchar" MaxLength="10" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaxNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDisable" Type="bit" />
+    <Property Name="DeleteMark" Type="int" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Path" Type="nvarchar" MaxLength="200" />
+    <Property Name="PathName" Type="nvarchar" MaxLength="200" />
+    <Property Name="SortStr" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsVirtual" Type="bit" />
+  </EntityType>
+  <EntityType Name="Org_OrganPerson">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="OrganID" Type="nvarchar" MaxLength="50" />
+    <Property Name="PersonID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDefault" Type="bit" />
+    <Property Name="staffFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="Org_Person">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PersonCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="PersonName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="BirthDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="JobPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="JobPhone2" Type="nvarchar" MaxLength="100" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+    <Property Name="MSN" Type="nvarchar" MaxLength="50" />
+    <Property Name="ICQ" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="HomeTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeleteMark" Type="bit" />
+    <Property Name="AvatarPath" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="State" Type="int" />
+    <Property Name="StaffFlag" Type="int" />
+    <Property Name="DutyType" Type="nvarchar" MaxLength="10" />
+    <Property Name="EMAIL_CAPACITY" Type="int" />
+    <Property Name="LimitsID" Type="nvarchar" MaxLength="200" />
+    <Property Name="pingying" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Sys_Attachment">
+    <Key>
+      <PropertyRef Name="AttachmentID" />
+    </Key>
+    <Property Name="AttachmentID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Primarykey" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RealName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FileSize" Type="int" />
+    <Property Name="FileType" Type="nvarchar" MaxLength="10" />
+    <Property Name="UpLoadTime" Type="datetime" />
+    <Property Name="SaveMark" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeleteMark" Type="bit" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Sys_AttachmentConver">
+    <Key>
+      <PropertyRef Name="AttachmentID" />
+    </Key>
+    <Property Name="AttachmentID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ConverTo" Type="nvarchar" MaxLength="10" />
+    <Property Name="ConverResult" Type="nvarchar" MaxLength="10" />
+    <Property Name="ConverTime" Type="datetime" />
+    <Property Name="UseTimes" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Sys_AttachmentSet">
+    <Key>
+      <PropertyRef Name="ModuleCode" />
+    </Key>
+    <Property Name="ModuleCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="20" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="200" />
+    <Property Name="PersonFolder" Type="bit" />
+    <Property Name="MaxSize" Type="int" />
+    <Property Name="NotAllowFileType" Type="nvarchar" MaxLength="200" />
+    <Property Name="AllowFileType" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Sys_BillNo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ModuleCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="10" />
+    <Property Name="SpaceMark" Type="int" />
+    <Property Name="DateFormat" Type="nvarchar" MaxLength="10" />
+    <Property Name="Length" Type="int" />
+    <Property Name="MaxDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="MaxNum" Type="int" />
+    <Property Name="Creater" Type="nvarchar" MaxLength="10" />
+    <Property Name="CreateName" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="DeleteMark" Type="int" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“OA.dbo.Sys_Clock”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Sys_Clock">
+          <Property Name="ID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Content" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="SendType" Type="nvarchar" MaxLength="10" />
+          <Property Name="Count" Type="int" />
+          <Property Name="UpdateCountTime" Type="datetime" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeleteMark" Type="int" />
+        </EntityType>-->
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“OA.dbo.Sys_DbServer”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Sys_DbServer">
+          <Property Name="ClientID" Type="int" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DbName" Type="nvarchar" MaxLength="50" />
+          <Property Name="connectionString" Type="nvarchar" MaxLength="200" />
+        </EntityType>-->
+  <EntityType Name="Sys_Function">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="FunctionCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="FunctionName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Sort" Type="int" />
+  </EntityType>
+  <EntityType Name="Sys_IdentityValues">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ItemKey" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemValue" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sys_Log">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="10" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PersonName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IP" Type="nvarchar" MaxLength="50" />
+    <Property Name="LogContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="DeleteMark" Type="bit" />
+    <Property Name="HostName" Type="nvarchar" MaxLength="30" />
+    <Property Name="Type" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Sys_Mail">
+    <Key>
+      <PropertyRef Name="MailID" />
+    </Key>
+    <Property Name="MailID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="MailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailSubject" Type="nvarchar" MaxLength="200" />
+    <Property Name="MailContent" Type="text" />
+    <Property Name="MailState" Type="int" />
+    <Property Name="priority" Type="int" />
+    <Property Name="SendTimes" Type="int" />
+    <Property Name="SendTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="BusinessName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BusinessTable" Type="nvarchar" MaxLength="50" />
+    <Property Name="BusinessKey" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimerID" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“OA.dbo.Sys_Mail_Log”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Sys_Mail_Log">
+          <Property Name="MailID" Type="nvarchar" MaxLength="10" />
+          <Property Name="LogContent" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="Sys_Menu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="int" Nullable="false" />
+    <Property Name="MenuCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="MenuEName" Type="nvarchar" MaxLength="20" />
+    <Property Name="ParentID" Type="int" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="IsShow" Type="int" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="20" />
+    <Property Name="WebUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="SysID" Type="int" />
+    <Property Name="DeleteMark" Type="bit" />
+    <Property Name="Dynamic" Type="tinyint" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“OA.dbo.Sys_Menu_Bak”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Sys_Menu_Bak">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="int" Nullable="false" />
+    <Property Name="MenuCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="MenuEName" Type="nvarchar" MaxLength="20" />
+    <Property Name="ParentID" Type="int" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="IsShow" Type="int" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="20" />
+    <Property Name="WebUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="SysID" Type="int" />
+    <Property Name="DeleteMark" Type="bit" />
+    <Property Name="Dynamic" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Sys_Module">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="int" Nullable="false" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="WebURL" Type="nvarchar" MaxLength="100" />
+    <Property Name="SysID" Type="int" />
+    <Property Name="IsTab" Type="int" />
+    <Property Name="IsSys" Type="bit" />
+    <Property Name="DeleteMark" Type="bit" />
+  </EntityType>
+  <EntityType Name="Sys_Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsDisable" Type="int" />
+    <Property Name="Rank" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsSuper" Type="bit" />
+  </EntityType>
+  <EntityType Name="Sys_RoleFunction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="RoleID" Type="nvarchar" MaxLength="10" />
+    <Property Name="FunctionID" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Sys_SysInfo">
+    <Key>
+      <PropertyRef Name="SysID" />
+    </Key>
+    <Property Name="SysID" Type="int" Nullable="false" />
+    <Property Name="SysCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="SysName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Path" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDisable" Type="bit" />
+    <Property Name="DeleteMark" Type="bit" />
+    <Property Name="OpenModel" Type="int" />
+  </EntityType>
+  <EntityType Name="Sys_UnitInfo">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Name="UnitID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="varchar" MaxLength="20" />
+    <Property Name="Fax" Type="varchar" MaxLength="20" />
+    <Property Name="PostCode" Type="varchar" MaxLength="10" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="WebSite" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Legal" Type="nvarchar" MaxLength="50" />
+    <Property Name="LegalTelPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account" Type="varchar" MaxLength="50" />
+    <Property Name="Abstruct" Type="ntext" />
+    <Property Name="AffixFile" Type="nvarchar" MaxLength="50" />
+    <Property Name="CorporateCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="EnrollDate" Type="date" />
+    <Property Name="NomicRemark" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Sys_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="PersonID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDisable" Type="bit" />
+    <Property Name="IsSuper" Type="bit" />
+    <Property Name="IsForbid" Type="bit" />
+    <Property Name="LastLoginTime" Type="datetime" />
+    <Property Name="DeleteMark" Type="bit" />
+    <Property Name="HID" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“OA.dbo.Sys_User_Function”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Sys_User_Function">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="FunctionID" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sys_UserConfig">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Skin" Type="nvarchar" MaxLength="10" />
+    <Property Name="LastOnlineTime" Type="datetime" />
+    <Property Name="TotalOnline" Type="int" />
+    <Property Name="LogoutTime" Type="datetime" />
+    <Property Name="OnlineState" Type="int" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SignaTure" Type="nvarchar" MaxLength="100" />
+    <Property Name="OnlineIP" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="OAModelStoreContainer">
+    <EntitySet Name="Org_Organ" EntityType="Self.Org_Organ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Org_OrganPerson" EntityType="Self.Org_OrganPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Org_Person" EntityType="Self.Org_Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Attachment" EntityType="Self.Sys_Attachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_AttachmentConver" EntityType="Self.Sys_AttachmentConver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_AttachmentSet" EntityType="Self.Sys_AttachmentSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_BillNo" EntityType="Self.Sys_BillNo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Function" EntityType="Self.Sys_Function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_IdentityValues" EntityType="Self.Sys_IdentityValues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Log" EntityType="Self.Sys_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Mail" EntityType="Self.Sys_Mail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Menu" EntityType="Self.Sys_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Module" EntityType="Self.Sys_Module" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Role" EntityType="Self.Sys_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_RoleFunction" EntityType="Self.Sys_RoleFunction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_SysInfo" EntityType="Self.Sys_SysInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_UnitInfo" EntityType="Self.Sys_UnitInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_User" EntityType="Self.Sys_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_UserConfig" EntityType="Self.Sys_UserConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Menu_Bak" EntityType="Self.Sys_Menu_Bak" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Sys_Menu_Bak].[MenuID] AS [MenuID], 
+[Sys_Menu_Bak].[MenuCode] AS [MenuCode], 
+[Sys_Menu_Bak].[MenuEName] AS [MenuEName], 
+[Sys_Menu_Bak].[ParentID] AS [ParentID], 
+[Sys_Menu_Bak].[ModuleID] AS [ModuleID], 
+[Sys_Menu_Bak].[IsShow] AS [IsShow], 
+[Sys_Menu_Bak].[MenuName] AS [MenuName], 
+[Sys_Menu_Bak].[WebUrl] AS [WebUrl], 
+[Sys_Menu_Bak].[SysID] AS [SysID], 
+[Sys_Menu_Bak].[DeleteMark] AS [DeleteMark], 
+[Sys_Menu_Bak].[Dynamic] AS [Dynamic]
+FROM [dbo].[Sys_Menu_Bak] AS [Sys_Menu_Bak]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sys_User_Function" EntityType="Self.Sys_User_Function" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Sys_User_Function].[UserID] AS [UserID], 
+[Sys_User_Function].[FunctionID] AS [FunctionID]
+FROM [dbo].[Sys_User_Function] AS [Sys_User_Function]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

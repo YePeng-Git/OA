@@ -1,0 +1,177 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 OA 应用程序</title>
+    <link rel="stylesheet" href="@ViewBag.easyuiTheme" id="easyuiTheme" />
+    @Styles.Render("~/style-easyui")
+    <link rel="stylesheet" href="@Url.Content("~/Content/jquery-easyui-1.5/custom/tree.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/jquery-easyui-1.5/icon.css")" />
+
+    <style type="text/css">
+        /*accordion选中默认原来的颜色*/
+        .accordion .accordion-header-selected {
+        }
+
+            .accordion .accordion-header-selected .panel-title {
+                
+            }
+    </style>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',split:false,border:false" style="height: 68px; background: #4A5B79; ">
+        <div id="headMenu">
+            <ul id="topnav">
+                <li id="metnav_1" class="list">
+                    <a id="nav_1" onclick="location.href = 'http://localhost:8000/'">
+                        <span class="c1"></span>
+                        系统首页
+                    </a>
+                </li>
+                <li id="metnav_3" class="list">
+                    <a id="nav_3" class="">
+                        <span class="c3"></span>帮助中心
+                        <div class="popup">
+                            <i></i>
+                            <ul>
+                                <li>
+                                    <img src="/Content/Images/Icon16/help.png">查看帮助
+                                </li>
+                                <li title="将反馈建议提交给开发商进行解决" onclick="window.open('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=uICJioyLiYuPivjJyZbb19U','_blank')">
+                                    <img src="/Content/Images/Icon16/email_open.png">反馈建议
+                                </li>
+                                <li onclick="Support()">
+                                    <img src="/Content/Images/Icon16/premium_support.png">技术支持
+                                </li>
+                                <li onclick="About()">
+                                    <img src="/Content/Images/Icon16/information.png">关于我们
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+                <li id="metnav_2" class="list">
+                    <a id="nav_2">
+                        <span class="c2"></span>切换皮肤
+                        <div class="popup" id="divTheme">
+                            <i></i>
+                            <ul>
+                                <li>
+                                    <div style="" class="img"></div><font>default</font>
+                                </li>
+                                <li>
+                                    <div style="background-color: #F4F4F4;" class="img"></div><font>Gray</font>
+                                </li>
+                                <li>
+                                    <div style="background-color: #FFFFFF;" class="img"></div><font>Metro</font>
+                                </li>
+                                <li>
+                                    <div style="background-color: #404040;" class="img"></div><font>Black</font>
+                                </li>
+                                <li>
+                                    <div style="background-color: #F9F9F9;" class="img"></div><font>Bootstrap</font>
+                                </li>
+                                <li>
+                                    <div style="background-color: #F5F5F5;" class="img"></div><font>custom</font>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+                <li id="metnav_5" class="list" onclick="PersonCenter()">
+                    <a id="nav_5">
+                        <span class="c5"></span>个人中心
+                    </a>
+                </li>
+                <li id="metnav_4" class="list" onclick="IndexOut();">
+                    <a id="nav_4">
+                        <span class="c4"></span>
+                        安全退出
+                        <div class="popup" id="divLoginOut">
+                            <i></i>
+                            <ul>
+                                <li>
+                                    <img src="/Content/jquery-easyui-1.5/iconsExtend/icon-hamburg/16x16/stop.png"><font>退出</font>
+                                </li>
+                                <li>
+                                    <img src="/Content/jquery-easyui-1.5/iconsExtend/icon-hamburg/16x16/logout.png"><font>注销</font>
+                                </li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div data-options="region:'south',split:false" style="height:30px;"></div>
+    <div data-options="region:'west',split:false,collapsible:true" style="width: 250px;">
+        <div id="divMenu" class="easyui-accordion" style="height:100%;" data-options="border:false">
+            <div class="panel-loading"></div>
+            @*<div title="1231242141">
+                <div class="easyui-panel" title="123fdfsdfsdfs"></div>
+            </div>*@
+        </div>
+    </div>
+    <div data-options="region:'center'" data-options="border:false">
+        <div id="divInfo" class="easyui-tabs" style="height:100%;" data-options="border:false">
+            <div title="首页">
+            </div>
+        </div>
+    </div>
+
+    <div id="mm" class="easyui-menu" style="width:120px;display:none;">
+        <div id="tabRefresh" data-options="iconCls:'icon-reload'">
+            刷新
+        </div>
+        <div id="tabOpenFrame">
+            在新的窗体打开
+        </div>
+        <div id="tabCloseAll">
+            关闭所有
+        </div>
+        <div id="tabCloseOther">
+            关闭其他标签页
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="tabCloseRight">
+            关闭右边
+        </div>
+        <div id="tabCloseLeft">
+            关闭左边
+        </div>
+        <div id="tabCloseCurrent" data-options="iconCls:'icon-remove'">
+            关闭
+        </div>
+        <div id="menu" class="easyui-menu" style="width: 150px;">
+        </div>
+    </div>
+
+    @Scripts.Render("~/script-easyui")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/portal.js")"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({ async: false })
+
+        $(function () {
+            //加载一级菜单
+            InitMenu();
+            //加载下级菜单
+            InitChildMenu();
+            //tab鼠标右击事件
+            tab_contextmenu();
+            //tab鼠标右键按钮事件
+            contextmenuEvent();
+            //导航下拉框事件绑定
+            topnav_active();
+            //修改主题
+            changeTheme();
+        })
+    </script>
+</body>
+</html>

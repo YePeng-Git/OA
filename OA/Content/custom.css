@@ -1,0 +1,170 @@
+﻿body {
+}
+
+
+* {
+    margin: 0;
+    padding:0;
+}
+
+#headMenu {
+    float: right;
+    margin-right: 0px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul, li, h1, h2, h3, h4, h5, h6, dl, dt, dd {
+    padding: 0;
+    margin: 0;
+}
+
+
+/*头部右边导航Start*/
+#topnav li.list {
+    float: left;
+    display: inline;
+    margin: 3px 12px 0px 0px;
+}
+
+#topnav li a {
+    cursor: pointer;
+    display: inline;
+    float: left;
+    width: 55px;
+    text-align: center;
+    height: 56px;
+    padding: 5px 7px 0px;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0px -1px rgba(0,0,0,0.2);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+    #topnav li a.active {
+        border-radius: 5px;
+        background-color: #38455B;
+    }
+
+
+    #topnav li a span {
+        display: block;
+        margin: 0px auto 3px;
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+    }
+
+        #topnav li a span.c1 {
+            background: url(Images/n1.png) no-repeat;
+        }
+
+        #topnav li a span.c2 {
+            background: url(Images/n2.png) no-repeat;
+        }
+
+        #topnav li a span.c3 {
+            background: url(Images/n3.png) no-repeat;
+        }
+
+        #topnav li a span.c4 {
+            background: url(Images/n4.png) no-repeat;
+        }
+
+        #topnav li a span.c5 {
+            background: url(Images/n5.png) no-repeat;
+        }
+
+        #topnav li a span.c6 {
+            background: url(Images/n6.png) no-repeat;
+        }
+
+        #topnav li a span.c7 {
+            background: url(Images/n7.png) no-repeat;
+        }
+/*头部右边导航End*/
+
+/*头部右边导航下拉框START*/
+.popup {
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+    z-index: 4;
+    display: none;
+    text-align: left;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+    .popup i {
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent #4A5B79;
+        position: absolute;
+        top: -10px;
+        left: 50%; /* 三角形居中显示 */
+        margin-left: -10px; /* 三角形居中显示 */
+    }
+
+    .popup ul {
+        color: #fff;
+        float: left;
+        background: #4A5B79;
+        padding: 3px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        box-shadow: 0 10px 20px rgba(0,0,0,.6);
+    }
+
+        .popup ul li {
+            height: 24px;
+            line-height: 24px;
+            cursor: pointer;
+            padding: 0 30px;
+        }
+
+            .popup ul li:hover {
+                background-color: #fff;
+                color: black;
+                height: 24px;
+                line-height: 24px;
+                padding: 0 30px;
+            }
+
+    .popup li img {
+        position: absolute;
+        left: 7px;
+        margin-top: 4.5px;
+        margin-bottom: 4.5px;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        border: 0px solid #fff;
+    }
+
+    .popup li .img {
+        position: absolute;
+        left: 7px;
+        margin-top: 4.5px;
+        margin-bottom: 4.5px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: middle;
+        border: 0px solid #fff;
+        border-radius: 2px;
+        background-color: #E9F1FF;
+    }
+/*头部右边导航下拉框END*/

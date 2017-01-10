@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 OA 应用程序</title>
+    @Styles.Render("~/style-easyui")
+
+
+    <style type="text/css">
+        /*accordion选中默认原来的颜色*/
+        .accordion .accordion-header-selected {
+            background: #E0ECFF;
+        }
+    </style>
+
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north',split:false,border:false" style="height:50px;"></div>
+    <div data-options="region:'south',split:false" style="height:30px;"></div>
+    <div data-options="region:'west',split:false,collapsible:true" style="width: 250px;">
+        <div id="divMenu" class="easyui-accordion" style="height:100%;" data-options="border:false">
+        </div>
+    </div>
+    <div data-options="region:'center'" data-options="border:false">
+        <div id="divInfo" class="easyui-tabs" style="height:100%" data-options="border:false">
+            <div title="首页">
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/script-easyui")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $.ajaxSetup({ async: false })
+
+        function InitMenu() {
+            $.post("/Home/LoadMenu", function (json, success, jqXHR) {
+                if (!json.success) {
+                    $.messager.alert("提示", "加载菜单出错：" + json.msg, "error");
+                    return false;
+                }
+                $.each(json.rows, function (index, node) {
+                    $('#divMenu').accordion('add', {
+                        title: node.MenuName,
+                        //iconCls: 'icon-menu-' + value.MenuImg.replace(new RegExp('.png'), ''),
+                        selected: index == 0 ? true : false,
+                        content: '<div style="padding:5px;"><ul MenuID="' + node.MenuID + '" class="easyui-tree"></ul></div>'
+                    });
+                })
+            }, "json");
+        }
+
+        //异步加载子节点，即二级菜单
+        function InitChildMenu() {
+            $('.easyui-tree').tree({
+                url: "/Home/LoadChildMenu",
+                animate: true,
+                loadFilter: function (data, parent) {
+                    return data.rows;
+                },
+                onBeforeLoad: function (node, param) {
+                    if (!node) {
+                        param.ParentID = $(this).attr("MenuID");
+                    }
+                    else {
+                        param.ParentID = node.id;
+                    }
+                },
+                onClick: function (node) {
+                    if (node.attributes) {
+                        openPage(node.text, node.attributes.URL);
+                    }
+                },
+                onLoadSuccess: function (node, data) {
+
+                }
+            });
+        }
+
+        function openPage(title, url) {
+            title = title.length > 10 ? title.substring(8) + "..." : title;
+
+            //查看标签是否存在，存在选中，否则新增标签
+            var existsTab = $divInfo.tabs('exists', title);
+            if (existsTab) {
+                $divInfo.tabs('select', title);
+                return;
+            }
+
+            var tabHeight = $("#divInfo").height() - 35;
+            $divInfo.tabs('add', {
+                title: title,
+                selected: true,
+                content: '<iframe src="' + url + '" style="width:100%;height:' + tabHeight + 'px;" frameborder="0"></iframe>',
+                closable: true,
+                tools: [{
+                    iconCls: 'icon-mini-refresh',
+                    handler: function () {
+                        var current_tab = $divInfo.tabs('getTab', title);
+                        $divInfo.tabs('update', {
+                            tab: current_tab,
+                            options: {
+                                content: '<iframe src="' + url + '" style="width:100%;height:' + tabHeight + 'px;" frameborder="0"></iframe>',
+                            }
+                        });
+                    }
+                }]
+            });
+        }
+
+
+        $(function () {
+            InitMenu();
+            InitChildMenu();
+        })
+
+    </script>
+</body>
+</html>
